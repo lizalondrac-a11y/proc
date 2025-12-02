@@ -1,0 +1,763 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabañas Refugio Apexco - Villa del Carbón</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header y navegación */
+        header {
+            background: linear-gradient(rgba(34, 139, 34, 0.9), rgba(139, 69, 19, 0.9)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0;
+            border-bottom: 5px solid #8B4513;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #F5DEB3;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .logo p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            background-color: rgba(34, 139, 34, 0.9);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #8B4513;
+        }
+
+        /* Sección de login */
+        .login-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .login-section h2 {
+            color: #228B22;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #F5DEB3;
+            padding-bottom: 10px;
+        }
+
+        .login-form {
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #228B22;
+            outline: none;
+        }
+
+        .btn {
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #228B22;
+        }
+
+        /* Secciones de contenido */
+        .content-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #228B22;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #F5DEB3;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #8B4513;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h3 i {
+            margin-right: 10px;
+        }
+
+        /* Políticas de calidad */
+        .policies-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .policies-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .policies-list li:before {
+            content: "✓";
+            color: #228B22;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Ubicación */
+        .location-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Catálogo */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .cabin-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cabin-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .cabin-img {
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cabin-info {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .cabin-info h4 {
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+
+        .cabin-price {
+            color: #228B22;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            min-height: 150px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            background-color: #8B4513;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            color: #8B4513;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #228B22;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: #8B4513;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y navegación -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mountain"></i>
+                </div>
+                <div>
+                    <h1>Cabañas Refugio Apexco</h1>
+                    <p>Villa del Carbón, Estado de México</p>
+                    <p>Tu refugio perfecto en la naturaleza</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#mision"><i class="fas fa-bullseye"></i> Misión</a></li>
+                    <li><a href="#ubicacion"><i class="fas fa-map-marker-alt"></i> Ubicación</a></li>
+                    <li><a href="#catalogo"><i class="fas fa-concierge-bell"></i> Catálogo</a></li>
+                    <li><a href="#contacto"><i class="fas fa-envelope"></i> Contáctame</a></li>
+                    <li><a href="#faq"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de login -->
+    <div class="container">
+        <section class="login-section" id="login">
+            <h2><i class="fas fa-sign-in-alt"></i> Acceso Clientes</h2>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="usuario"><i class="fas fa-user"></i> Usuario</label>
+                    <input type="text" id="usuario" placeholder="Ingresa tu usuario">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena"><i class="fas fa-lock"></i> Contraseña</label>
+                    <input type="password" id="contrasena" placeholder="Ingresa tu contraseña">
+                </div>
+                <button class="btn">Iniciar Sesión</button>
+                <p style="margin-top: 15px; color: #666;">
+                    <a href="#" style="color: #8B4513;">¿Olvidaste tu contraseña?</a> | 
+                    <a href="#" style="color: #8B4513;">Registrarme</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Misión, Visión y Políticas -->
+        <section class="content-section" id="mision">
+            <h2 class="section-title"><i class="fas fa-bullseye"></i> Nuestra Empresa</h2>
+            
+            <div class="mission-vision">
+                <div class="card">
+                    <h3><i class="fas fa-flag"></i> Misión</h3>
+                    <p>Ofrecer experiencias únicas de conexión con la naturaleza a través de alojamientos de calidad, combinando el confort moderno con la autenticidad rústica, para crear memorias inolvidables en nuestros huéspedes.</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-eye"></i> Visión</h3>
+                    <p>Ser el complejo de cabañas ecoturísticas líder en Villa del Carbón, reconocido por nuestra excelencia en servicio, sostenibilidad ambiental y contribución al desarrollo turístico de la región.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <h3 class="section-title"><i class="fas fa-star"></i> Políticas de Calidad</h3>
+                <ul class="policies-list">
+                    <li>Compromiso total con la satisfacción del cliente</li>
+                    <li>Mantenimiento constante de nuestras instalaciones</li>
+                    <li>Respeto y preservación del medio ambiente</li>
+                    <li>Personal capacitado y con trato amable</li>
+                    <li>Servicios personalizados según necesidades del huésped</li>
+                    <li>Limpieza e higiene de primer nivel</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Ubicación -->
+        <section class="content-section" id="ubicacion">
+            <h2 class="section-title"><i class="fas fa-map-marker-alt"></i> Ubicación</h2>
+            
+            <div class="location-info">
+                <div>
+                    <h3>San Gerónimo Apexco, Villa del Carbón</h3>
+                    <p><strong>Dirección exacta:</strong> Camino a San Gerónimo S/N, Apexco, Villa del Carbón, Estado de México, C.P. 54300</p>
+                    
+                    <div style="margin: 20px 0;">
+                        <h4><i class="fas fa-car"></i> Cómo llegar:</h4>
+                        <p>Desde CDMX: Tomar autopista a Querétaro, salida Villa del Carbón, continuar por camino señalizado por 15 minutos.</p>
+                        <p>Coordenadas GPS: 19.7211° N, 99.5316° O</p>
+                    </div>
+                    
+                    <div>
+                        <h4><i class="fas fa-clock"></i> Horarios de atención:</h4>
+                        <p>Check-in: 3:00 PM | Check-out: 12:00 PM</p>
+                        <p>Recepcion 24/7 para emergencias</p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+    <!-- Mapa interactivo de Google Maps -->
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1881.9665063741684!2d-99.533789!3d19.7211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d25c6c6c8f2b2b%3A0x8c9c9c9c9c9c9c9c!2sSan%20Ger%C3%B3nimo%20Apexco%2C%20Villa%20del%20Carb%C3%B3n%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1680000000000!5m2!1ses!2smx" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+            </div>
+        </section>
+
+        <!-- Catálogo de productos -->
+        <section class="content-section" id="catalogo">
+            <h2 class="section-title"><i class="fas fa-concierge-bell"></i> Catálogo de Cabañas</h2>
+            
+            <div class="catalog-grid">
+                <!-- Cabaña 1 -->
+                <div class="cabin-card">
+                    <div class="cabin-img" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="cabin-info">
+                        <h4>El Roble - Familiar</h4>
+                        <p>Para 6 personas • 2 recámaras • Chimenea</p>
+                        <p class="cabin-price">$1,800 / noche</p>
+                        <button class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Reservar</button>
+                    </div>
+                </div>
+                
+                <!-- Cabaña 2 -->
+                <div class="cabin-card">
+                    <div class="cabin-img" style="background-image: url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80');"></div>
+                    <div class="cabin-info">
+                        <h4>El Pino - Romántica</h4>
+                        <p>Para 2 personas • Jacuzzi privado • Vista panorámica</p>
+                        <p class="cabin-price">$2,500 / noche</p>
+                        <button class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Reservar</button>
+                    </div>
+                </div>
+                
+                <!-- Cabaña 3 -->
+                <div class="cabin-card">
+                    <div class="cabin-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="cabin-info">
+                        <h4>La Secuoya - Grande</h4>
+                        <p>Para 8 personas • 3 recámaras • 2 chimeneas</p>
+                        <p class="cabin-price">$3,200 / noche</p>
+                        <button class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Reservar</button>
+                    </div>
+                </div>
+                
+                <!-- Cabaña 4 -->
+                <div class="cabin-card">
+                    <div class="cabin-img" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="cabin-info">
+                        <h4>El Arce - Ejecutiva</h4>
+                        <p>Para 4 personas • Jacuzzi infinity • Smart TV</p>
+                        <p class="cabin-price">$3,800 / noche</p>
+                        <button class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Reservar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contáctame -->
+        <section class="content-section" id="contacto">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contáctame</h2>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" placeholder="Tu nombre">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" placeholder="tu@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" placeholder="(55) 1234-5678">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        
+                        <button class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>55 9876 5432</p>
+                            <p>WhatsApp: 55 1234 5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>reservaciones@refugioapexco.com</p>
+                            <p>info@refugioapexco.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horario de atención</h4>
+                            <p>Lunes a Domingo: 9:00 AM - 9:00 PM</p>
+                            <p>Atención 24/7 para reservas confirmadas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-share-alt"></i>
+                        <div>
+                            <h4>Síguenos</h4>
+                            <p>@RefugioApexco en redes sociales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preguntas frecuentes -->
+        <section class="content-section" id="faq">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cuál es la política de cancelación?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes cancelar sin costo hasta 7 días antes de tu fecha de check-in. Entre 7 y 3 días antes, se retiene el 50% del depósito. Menos de 3 días no es reembolsable.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Aceptan mascotas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, aceptamos mascotas en cabañas específicas con un costo adicional de $200 por noche. Se requiere que estén vacunadas y bajo supervisión.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Qué debo llevar para mi estancia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Proveemos ropa de cama, toallas, utensilios de cocina y leña básica. Te recomendamos llevar ropa abrigadora, repelente de insectos y alimentos específicos si tienes dieta especial.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Hay señal de celular e internet?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Todas las cabañas tienen Wi-Fi gratuito. La señal de celular es variable según la compañía, pero Telcel tiene mejor cobertura en la zona.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Qué actividades hay cerca?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Senderismo, paseos a caballo, visita a viñedos locales, pesca deportiva, avistamiento de aves y recorridos por el pueblo mágico de Villa del Carbón.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Cabañas Refugio Apexco</h3>
+            <p>San Gerónimo Apexco, Villa del Carbón, Estado de México</p>
+            <p>© 2024 Todos los derechos reservados</p>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                <a href="#" style="color: white; margin: 0 10px;">Términos y condiciones</a> | 
+                <a href="#" style="color: white; margin: 0 10px;">Política de privacidad</a> | 
+                <a href="#" style="color: white; margin: 0 10px;">Aviso legal</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad para las preguntas frecuentes
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Inicializar respuestas como ocultas
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+
+        // Simulación de login (solo demostración)
+        document.querySelector('.login-form .btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const usuario = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+            
+            if (usuario && contrasena) {
+                alert(`¡Bienvenido ${usuario}! En un sitio real, aquí validaríamos tus credenciales.`);
+            } else {
+                alert('Por favor, completa ambos campos.');
+            }
+        });
+
+        // Navegación suave
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
